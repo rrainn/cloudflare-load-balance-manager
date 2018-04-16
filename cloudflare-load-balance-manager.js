@@ -127,7 +127,8 @@ program
 	try {
 		const axiosData = await axios.put(`https://api.cloudflare.com/client/v4/user/load_balancers/pools/${identifier}`, {
 			name: poolDetails.name,
-			origins: updatedPoolOrigins
+			origins: updatedPoolOrigins,
+			check_regions: poolDetails.check_regions
 		}, {
 			headers: {
 				"X-Auth-Email": email,
