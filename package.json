@@ -2,7 +2,7 @@
   "name": "cloudflare-load-balance-manager",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "cloudflare-load-balance-manager.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,8 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
+    "colors": "^1.2.1",
     "commander": "^2.15.1",
-    "public-ip": "^2.4.0",
-    "scriptutils": "^1.6.0"
+    "public-ip": "^2.4.0"
   }
 }
