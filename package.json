@@ -14,5 +14,8 @@
     "colors": "^1.2.1",
     "commander": "^2.15.1",
     "public-ip": "^2.4.0"
+  },
+  "bin": {
+    "cloudflare-load-balance-manager": "cloudflare-load-balance-manager.js"
   }
 }
