@@ -41,7 +41,7 @@ program
 	}
 	const apiKey = options.apiKey;
 	const email = options.email;
-	const identifier = options.identifier;
+	let identifier = options.identifier;
 	const name = options.name;
 	console.log(!apiKey ? `✖ No API key specified`.red : `✔ Set API key: ${apiKey}`.green);
 	console.log(!email ? `✖ No email specified`.red : `✔ Set Email: ${email}`.green);
@@ -83,6 +83,7 @@ program
 		}
 		if (poolDetails) {
 			console.log(`✔ Found correct pool`.green);
+			identifier = poolDetails.id;
 		} else {
 			console.log(`✖ Couldn't find correct pool`.red);
 			return process.exit(1);
