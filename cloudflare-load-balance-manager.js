@@ -11,6 +11,7 @@ program
 .usage('<command> <options>');
 // Required if no env variables
 program
+.option('--name <name>', 'Cloudflare Load Balancer Name')
 .option('--identifier <identifier>', 'Cloudflare Load Balancer Identifier')
 .option('--api-key <api>', 'Cloudflare API Key')
 .option('--email <email>', 'Cloudflare Email Address');
@@ -41,10 +42,15 @@ program
 	const apiKey = options.apiKey;
 	const email = options.email;
 	const identifier = options.identifier;
+	const name = options.name;
 	console.log(!apiKey ? `✖ No API key specified`.red : `✔ Set API key: ${apiKey}`.green);
 	console.log(!email ? `✖ No email specified`.red : `✔ Set Email: ${email}`.green);
-	console.log(!identifier ? `✖ No identifier specified`.red : `✔ Set Identifer: ${identifier}`.green);
-	if (!apiKey || !email || !identifier) {
+	console.log(!identifier ? `* No identifier specified`.yellow : `✔ Set Identifer: ${identifier}`.green);
+	console.log(!name ? `* No name specified`.yellow : `✔ Set Name: ${name}`.green);
+	if (!identifier && !name) {
+		console.log(`✖ Error: name or identifer required`.red);
+	}
+	if (!apiKey || !email || (!identifier && !name)) {
 		return process.exit(1);
 	}
 	
@@ -63,7 +69,7 @@ program
 	let poolDetails;
 	let originExistsInPool;
 	try {
-		const axiosData = await axios.get(`https://api.cloudflare.com/client/v4/user/load_balancers/pools/${identifier}`, {
+		const axiosData = await axios.get(`https://api.cloudflare.com/client/v4/user/load_balancers/pools/${identifier ? identifer : ""}`, {
 			headers: {
 				"X-Auth-Email": email,
 				"X-Auth-Key": apiKey,
@@ -71,7 +77,10 @@ program
 			}
 		});
 		console.log(`✔ Got Cloudflare pool details`.green);
-		poolDetails = axiosData.data;
+		poolDetails = axiosData.data.result;
+		if (Array.isArray(poolDetails)) {
+			poolDetails = poolDetails.find(pool => pool.id === identifier || pool.name === name)
+		}
 
 		if (poolDetails.origins.some(origin => origin.address === ipAddress)) {
 			console.log(`✔ Found correct origin within pool`.green);
