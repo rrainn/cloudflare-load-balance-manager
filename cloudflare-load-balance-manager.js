@@ -9,7 +9,7 @@ const axios = require('axios');
 program
 .version(JSON.parse(fs.readFileSync('./package.json')).version, '-v, --version')
 .usage('<command> <options>');
-// Required if no env variables
+// Required
 program
 .option('--name <name>', 'Cloudflare Load Balancer Name')
 .option('--identifier <identifier>', 'Cloudflare Load Balancer Identifier')
@@ -19,7 +19,7 @@ program
 program
 .option('--origin-name <name>', 'Origin Name')
 .option('--origin-weight <weight>', 'Origin Weight');
-// Not required
+// Not required (other)
 program
 .option('--no-color', 'Disable colors from output');
 
