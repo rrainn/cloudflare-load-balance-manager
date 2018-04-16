@@ -81,6 +81,12 @@ program
 		if (Array.isArray(poolDetails)) {
 			poolDetails = poolDetails.find(pool => pool.id === identifier || pool.name === name)
 		}
+		if (poolDetails) {
+			console.log(`✔ Found correct pool`.green);
+		} else {
+			console.log(`✖ Couldn't find correct pool`.red);
+			return process.exit(1);
+		}
 
 		if (poolDetails.origins.some(origin => origin.address === ipAddress)) {
 			console.log(`✔ Found correct origin within pool`.green);
