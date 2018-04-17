@@ -19,6 +19,7 @@
 	],
 	"author": "rrainn, Inc.",
 	"license": "MIT",
+	"repository": "https://github.com/rrainn/cloudflare-load-balance-manager",
 	"dependencies": {
 		"axios": "^0.18.0",
 		"colors": "^1.2.1",
