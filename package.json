@@ -1,6 +1,6 @@
 {
 	"name": "cloudflare-load-balance-manager",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "CLI tool to register and deregister instances with a Cloudflare load balancer",
 	"main": "cloudflare-load-balance-manager.js",
 	"scripts": {
