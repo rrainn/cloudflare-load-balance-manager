@@ -1,30 +1,31 @@
 {
-  "name": "cloudflare-load-balance-manager",
-  "version": "0.1.0",
-  "description": "CLI tool to register and deregister instances with a Cloudflare load balancer",
-  "main": "cloudflare-load-balance-manager.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "cloudflare",
-    "load balancer",
-    "codedeploy",
-    "aws",
-    "script",
-    "register",
-    "deregister",
-    "instance"
-  ],
-  "author": "rrainn, Inc.",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^0.18.0",
-    "colors": "^1.2.1",
-    "commander": "^2.15.1",
-    "public-ip": "^2.4.0"
-  },
-  "bin": {
-    "cloudflare-load-balance-manager": "cloudflare-load-balance-manager.js"
-  }
+	"name": "cloudflare-load-balance-manager",
+	"version": "0.1.0",
+	"description": "CLI tool to register and deregister instances with a Cloudflare load balancer",
+	"main": "cloudflare-load-balance-manager.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"postversion": "git push -u && git push --tags && npm publish"
+	},
+	"keywords": [
+		"cloudflare",
+		"load balancer",
+		"codedeploy",
+		"aws",
+		"script",
+		"register",
+		"deregister",
+		"instance"
+	],
+	"author": "rrainn, Inc.",
+	"license": "MIT",
+	"dependencies": {
+		"axios": "^0.18.0",
+		"colors": "^1.2.1",
+		"commander": "^2.15.1",
+		"public-ip": "^2.4.0"
+	},
+	"bin": {
+		"cloudflare-load-balance-manager": "cloudflare-load-balance-manager.js"
+	}
 }
