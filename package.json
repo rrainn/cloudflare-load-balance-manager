@@ -21,10 +21,10 @@
 	"license": "MIT",
 	"repository": "https://github.com/rrainn/cloudflare-load-balance-manager",
 	"dependencies": {
-		"axios": "^0.18.0",
-		"colors": "^1.2.1",
-		"commander": "^2.15.1",
-		"public-ip": "^2.4.0"
+		"axios": "^0.19.2",
+		"colors": "^1.4.0",
+		"commander": "^4.1.0",
+		"public-ip": "^4.0.0"
 	},
 	"bin": {
 		"cloudflare-load-balance-manager": "cloudflare-load-balance-manager.js"
